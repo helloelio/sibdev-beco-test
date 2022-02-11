@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500&family=Roboto:wght@400;500;700&display=swap');
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  box-sizing: border-box;
+  color: rgba(51, 51, 51, 1);
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+#app {
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  width: 240px;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(243, 244, 249, 1);
+}
+.sidebar__header {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+}
+.header__companyname {
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-left: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+/* NAVIGATION */
+.nav__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+}
+.active-link {
+  color: rgba(52, 171, 224, 1);
+}
+.active-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 2px;
+  height: 50%;
+  background-color: rgba(52, 171, 224, 1);
+}
+.nav__item {
+  transition: background-color 0.3s ease-in-out;
+}
+.nav__item:hover {
+  background-color: rgba(212, 212, 212, 0.4);
+}
+.nav__text {
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+/* SIDEBAR */
+
+/* small screen navigation */
+.sidebar-mobile {
+  display: none;
+  transition: 0.1s ease-in-out;
+  z-index: 1000;
+}
+.sidebar-mobile-closed .nav__text,
+.header__companyname {
+  display: none;
+}
+.nav-open-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-image: url('./assets/Union.png');
+  top: 0;
+  height: 106px;
+  width: 48px;
+  right: -48px;
+}
+.nav__button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transform: rotate(90deg);
+}
+
+.sidebar-mobile-opened {
+  width: 246px !important;
+  transition: 0.1s ease-in-out;
+}
+.sidebar-mobile-opened .nav__text {
+  display: block;
+}
+.sidebar-mobile-opened .header__companyname {
+  display: block;
+}
+/* small screen navigation */
+
+/* MAIN */
+#main {
+  padding-left: 240px;
+  width: calc(100% - 240px);
+}
+.main__container {
+  background: #fafafa;
+  padding: 32px 60px;
+}
+.main__header {
+  border-bottom: 1px solid #e5e5e5;
+}
+.main__title {
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+.main__search {
+  position: relative;
+}
+.main__search input {
+  width: calc(100% - (44px + 12px));
+  border: 1px solid rgba(51, 51, 51, 0.2);
+  border-radius: 50px;
+  padding: 12px 16px 12px 44px;
+}
+.search-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 16px;
+}
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px;
+}
+.card__item {
+  background-color: #fff;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  max-width: 345px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+  transition: border 0.2s ease-in-out;
+}
+.card__item:hover .card__item::before {
+  background: #000;
+}
+
+.card__item::before {
+  content: '';
+  position: absolute;
+  width: 17px;
+  height: 10px;
+  left: -6px;
+  top: calc(50% - 10px / 2 + 13.5px);
+  background: #fff;
+  border-radius: 1px;
+  transform: matrix(0, -1, -1, 0, 0, 0);
+}
+.card__item::after {
+  content: '';
+  position: absolute;
+  width: 17px;
+  height: 10px;
+  right: -11px;
+  top: calc(50% - 10px / 2 + 13.5px);
+  background: #fff;
+  border-radius: 1px;
+  transform: rotate(-90deg);
+}
+.card__leftside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card__header {
+  padding: 15px 20px;
+}
+.card__title {
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.card__subtitle {
+  font-size: 16px;
+  opacity: 0.5;
+}
+.card__footer {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+}
+.card__num {
+  color: #df212d;
+  line-height: 28px;
+  font-size: 2rem;
+}
+.card__label {
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+.card__image {
+  border-radius: 10px;
+}
+.card__item:hover {
+  border: 2px solid #df212d;
+}
+/* MAIN */
+/* MEDIA */
+@media (max-width: 1315px) {
+  .cards {
+    grid-template-columns: auto auto;
+    justify-content: center;
+  }
+}
+@media (max-width: 1050px) {
+  .scrolled {
+    position: fixed;
+    right: 0;
+    left: 104px;
+    z-index: 500;
+  }
+  .cards-scrolled {
+    padding-top: 200px;
+  }
+  .scrolled .main__title {
+    display: none;
+  }
+  .sidebar-desk {
+    display: none;
+  }
+  .sidebar-mobile {
+    display: block;
+    width: 104px;
+  }
+  #main {
+    padding: 0;
+    width: calc(100% - 104px);
+    padding-left: 104px;
+  }
+  .main__title {
+    text-align: right;
+  }
+  .card__header,
+  .card__footer {
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    line-height: 16px;
+  }
+  .card__num {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .cards {
+    grid-template-columns: auto;
+    justify-content: center;
+  }
+}
+@media (max-width: 540px) {
+  .scrolled {
+    left: 12px;
+    /* padding: 0 50px; */
+  }
+  .main__container {
+    padding: 32px 40px;
+  }
+  .sidebar-mobile-closed .nav__link,
+  .sidebar__header {
+    display: none;
+  }
+  .sidebar-mobile-opened .nav__link {
+    display: flex;
+  }
+  .sidebar-mobile-opened .sidebar__header {
+    display: flex;
+  }
+  .sidebar-mobile-opened {
+    width: 192px;
+  }
+  .sidebar-mobile {
+    width: 12px;
+  }
+  .nav__link img {
+    display: none;
+  }
+  #main {
+    width: calc(100% - 12px);
+    padding-left: 12px;
+  }
+  .main__search {
+    margin: 0 20px;
+  }
+  .card__item {
+    width: 268px;
+  }
+  .card__header,
+  .card__footer {
+    padding: 15px 0 15px 20px;
+  }
+  .card__title,
+  .card__subtitle {
+    font-size: 0.75rem;
+  }
+  .card__num {
+    font-size: 1.75rem;
+  }
+}
